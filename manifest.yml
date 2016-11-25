@@ -1,0 +1,22 @@
+---
+declared-services:
+  conversation-vf-agent-assist:
+    label: conversation
+    plan: free
+  iotvftweet-cloudantNoSQLDB:
+    label: Cloudant NoSQL DB
+    plan: Lite
+applications:
+- name: vf-agent-assist
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - conversation-vf-agent-assist
+  - iotvftweet-cloudantNoSQLDB
+  env:
+    NPM_CONFIG_PRODUCTION: false
+    WORKSPACE_ID: 99bb901f-99fb-4d12-a83a-df8eb285d73f
+    LOG_USER: 7b910e0c-eb63-4e7f-983a-64a10cbf0411-bluemix
+    LOG_PASS: 5a8eafe23ddf6c77c9108b77436f402ac19713af76eb6dbab7928130d19e1f76	
