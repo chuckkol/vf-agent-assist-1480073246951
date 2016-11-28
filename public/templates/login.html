@@ -17,8 +17,8 @@
                 <img src="/images/CBTravel.LOGO.png">
             </div>
         </div>
-        <h3 class="form-signin-heading" ng-show="isNew == false">Please Take a Moment to Create an Account</h3>
-        <h3 class="form-signin-heading" ng-show="isNew == true">Please Enter Your Username and Password</h3>
+        <h3 class="form-signin-heading" ng-show="isNew == true">Please Take a Moment to Create an Account</h3>
+        <h3 class="form-signin-heading" ng-show="isNew == false">Please Enter Your Username and Password</h3>
         <div class="alert alert-warning" role="alert" ng-show="formData.error">{{formData.error}}</div>
         <input type="text" placeholder="Please Enter Your Email Address" required name="username" ng-model="username" ng-change="formData.error=null" class="form-control"/>
         <input type="password" placeholder="Enter a password" required="" name="password" ng-model="password" ng-change="formData.error=null" class="form-control"/>
