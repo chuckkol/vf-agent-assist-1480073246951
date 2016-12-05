@@ -1,0 +1,189 @@
+{
+  "document_tone": {
+    "tone_categories": [
+      {
+        "category_name": "Emotion Tone",
+        "category_id": "emotion_tone",
+        "tones": [
+          {
+            "tone_id": "anger",
+            "score": 0.172134,
+            "tone_name": "Anger"
+          },
+          {
+            "tone_id": "disgust",
+            "score": 0.1185,
+            "tone_name": "Disgust"
+          },
+          {
+            "tone_id": "fear",
+            "score": 0.087302,
+            "tone_name": "Fear"
+          },
+          {
+            "tone_id": "joy",
+            "score": 0.072273,
+            "tone_name": "Joy"
+          },
+          {
+            "tone_id": "sadness",
+            "score": 0.624265,
+            "tone_name": "Sadness"
+          }
+        ]
+      },
+      {
+        "category_name": "Language Tone",
+        "category_id": "language_tone",
+        "tones": [
+          {
+            "tone_id": "analytical",
+            "score": 0.0,
+            "tone_name": "Analytical"
+          },
+          {
+            "tone_id": "confident",
+            "score": 0.0,
+            "tone_name": "Confident"
+          },
+          {
+            "tone_id": "tentative",
+            "score": 0.0,
+            "tone_name": "Tentative"
+          }
+        ]
+      },
+      {
+        "category_name": "Social Tone",
+        "category_id": "social_tone",
+        "tones": [
+          {
+            "tone_id": "openness_big5",
+            "score": 0.745168,
+            "tone_name": "Openness"
+          },
+          {
+            "tone_id": "conscientiousness_big5",
+            "score": 0.257729,
+            "tone_name": "Conscientiousness"
+          },
+          {
+            "tone_id": "extraversion_big5",
+            "score": 0.530856,
+            "tone_name": "Extraversion"
+          },
+          {
+            "tone_id": "agreeableness_big5",
+            "score": 0.642599,
+            "tone_name": "Agreeableness"
+          },
+          {
+            "tone_id": "emotional_range_big5",
+            "score": 0.3969,
+            "tone_name": "Emotional Range"
+          }
+        ]
+      }
+    ]
+  },
+  "sentences_tone": [
+    {
+      "sentence_id": 0,
+      "tone_categories": [
+        {
+          "category_name": "Emotion Tone",
+          "category_id": "emotion_tone",
+          "tones": [
+            {
+              "tone_id": "anger",
+              "score": 0.172134,
+              "tone_name": "Anger"
+            },
+            {
+              "tone_id": "disgust",
+              "score": 0.1185,
+              "tone_name": "Disgust"
+            },
+            {
+              "tone_id": "fear",
+              "score": 0.087302,
+              "tone_name": "Fear"
+            },
+            {
+              "tone_id": "joy",
+              "score": 0.072273,
+              "tone_name": "Joy"
+            },
+            {
+              "tone_id": "sadness",
+              "score": 0.624265,
+              "tone_name": "Sadness"
+            }
+          ]
+        },
+        {
+          "category_name": "Language Tone",
+          "category_id": "language_tone",
+          "tones": [
+            {
+              "tone_id": "analytical",
+              "score": 0.0,
+              "tone_name": "Analytical"
+            },
+            {
+              "tone_id": "confident",
+              "score": 0.0,
+              "tone_name": "Confident"
+            },
+            {
+              "tone_id": "tentative",
+              "score": 0.0,
+              "tone_name": "Tentative"
+            }
+          ]
+        },
+        {
+          "category_name": "Social Tone",
+          "category_id": "social_tone",
+          "tones": [
+            {
+              "tone_id": "openness_big5",
+              "score": 0.745168,
+              "tone_name": "Openness"
+            },
+            {
+              "tone_id": "conscientiousness_big5",
+              "score": 0.257729,
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "tone_id": "extraversion_big5",
+              "score": 0.530856,
+              "tone_name": "Extraversion"
+            },
+            {
+              "tone_id": "agreeableness_big5",
+              "score": 0.642599,
+              "tone_name": "Agreeableness"
+            },
+            {
+              "tone_id": "emotional_range_big5",
+              "score": 0.3969,
+              "tone_name": "Emotional Range"
+            }
+          ]
+        }
+      ],
+      "input_from": 0,
+      "text": "A word is dead when it is said, some say very bad start for our work.",
+      "input_to": 69
+    },
+    {
+      "sentence_id": 1,
+      "tone_categories": [],
+      "input_from": 70,
+      "text": "Emily Dickinson",
+      "input_to": 85
+    }
+  ]
+}

@@ -41,7 +41,7 @@ travelApp.config(function($stateProvider, $urlRouterProvider) {
  * loaded
  */
 travelApp.run(function($rootScope, $state, $cookies) {
-    $rootScope.showCode = false; //intial true
+    $rootScope.showCode = true; //change to false during prod deployment;
     $rootScope.publishMessage = function(message) {
         $rootScope.textAreaShowMe = message + "\n" + ($rootScope.textAreaShowMe ? $rootScope.textAreaShowMe : "");
     };
@@ -154,7 +154,37 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
             return response.data;
         });
     };
-    $scope.findFlights = function(fromName, toName, departDate) {
+    
+    $scope.findTone = function(domainName,startdate, enddate) {
+        $rootScope.fact = "reterive the tone using REST call: /api/tone";
+        $scope.rowCollectionLeave = [];
+        $scope.rowCollectionRet = [];
+        $scope.fromDate = $("#formDate").val();
+        $scope.toDate = $("#lastDate").val();
+        $rootScope.publishMessage("POST REST REQ=/api/tone");
+        $http.post("/api/tone",
+        		{ 
+        			text: 'A word is dead when it is said, some say. Emily Dickinson' 
+        		}
+        )
+        .then(function(response) {
+            /*if (response.data.length > 0) {
+                $scope.empty = false;
+            }*/
+        	$scope.empty = false;
+            $rootScope.fact = response.data.document_tone.tone_categories ;//response.data;//response.data;
+            
+            $scope.rowCollectionLeave=response.data.document_tone.tone_categories[0].tones;
+            /*for (var j = 0; j < response.data.length; j++) {
+                $scope.rowCollectionLeave.push(response.data[j]);
+            }*/
+        }, function(error) {
+            //console.log(JSON.stringify(error));
+        	$rootScope.fact = JSON.stringify(error);
+        });
+    };
+    
+    $scope.findFlights = function(domainName, toName, departDate) {
         $rootScope.fact = "Searching for flights using REST call: /api/flightPath/findAll";
         $scope.rowCollectionLeave = [];
         $scope.rowCollectionRet = [];

@@ -136,7 +136,36 @@ function updateMessage(input, response) {
   }
   return response;
 }
-
+/**
+ * Get tone analyser response
+ * @param  {Object} input The request to the Conversation service
+ * @param  {Object} response The response from the Conversation service
+ * @return {Object}          The response with the updated message
+ */
+//Create the service wrapper
+var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+var toneAnalyzer = new ToneAnalyzerV3({
+  // If unspecified here, the TONE_ANALYZER_USERNAME and TONE_ANALYZER_PASSWORD environment properties will be checked
+  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
+  // username: '<username>',
+  // password: '<password>',
+  version_date: '2016-05-19'
+});
+var dummyJson = require('./test/tone.json');
+app.post('/api/tone', function(req, res, next) {
+	 /* Api call Working no issue uncomment during real impl
+	  * toneAnalyzer.tone(req.body, function(err, data) {
+	    if (err) {
+	      return next(err);
+	    }
+	    return res.json(data);
+	  });
+	  */
+	return res.json(dummyJson);
+	});
+/*
+ * =================================================
+ */
 if ( cloudantUrl ) {
   // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
   // app developer must also specify a LOG_USER and LOG_PASS env vars.
@@ -148,23 +177,23 @@ if ( cloudantUrl ) {
   // If the cloudantUrl has been configured then we will want to set up a nano client
   var nano = require( 'nano' )( cloudantUrl );
   // add a new API which allows us to retrieve the logs (note this is not secure)
-  nano.db.get( 'car_logs', function(err) {
+  nano.db.get( 'vf_chat_log', function(err) {
     if ( err ) {
       console.error(err);
-      nano.db.create( 'car_logs', function(errCreate) {
+      nano.db.create( 'vf_chat_log', function(errCreate) {
         console.error(errCreate);
-        logs = nano.db.use( 'car_logs' );
+        logs = nano.db.use( 'vf_chat_log' );
       } );
     } else {
-      logs = nano.db.use( 'car_logs' );
+      logs = nano.db.use( 'vf_chat_log' );
     }
   } );
 
   // Endpoint which allows deletion of db
   app.post( '/clearDb', auth, function(req, res) {
-    nano.db.destroy( 'car_logs', function() {
-      nano.db.create( 'car_logs', function() {
-        logs = nano.db.use( 'car_logs' );
+    nano.db.destroy( 'vf_chat_log', function() {
+      nano.db.create( 'vf_chat_log', function() {
+        logs = nano.db.use( 'vf_chat_log' );
       } );
     } );
     return res.json( {'message': 'Clearing db'} );
