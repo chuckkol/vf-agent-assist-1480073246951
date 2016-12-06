@@ -164,7 +164,7 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
         $rootScope.publishMessage("POST REST REQ=/api/tone");
         $http.post("/api/tone",
         		{ 
-        			text: 'A word is dead when it is said, some say. Emily Dickinson' 
+        			text: 'system : Sorry for the delay, we are currently experiencing high volumes. Please hold for the next available adviser. system : Sorry for the delay, we are currently experiencing high volumes. Please hold for the next available advisor system : You are now chatting with Dizzy. agent : Hello, you are chatting with Dizzy, how may I help you today? Visitor: i need a pac code agent : To get the pac code you just need to call on 191 and choose the option 2, 1 and 2. agent : The call will be free of cost . Visitor: ok thank you agent : You are welcome . agent : Is there anything else I can do for you today? Visitor: no thanks agent : You are welcome . agent : Have a great day ahead . agent : Take care . agent : Cheers. Visitor: u 2 agent : Bye. agent : Thanks. system : Thanks for chatting with us. A word is dead when it is said, some say. Emily Dickinson' 
         		}
         )
         .then(function(response) {
@@ -172,7 +172,7 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
                 $scope.empty = false;
             }*/
         	$scope.empty = false;
-            $rootScope.fact = response.data.document_tone.tone_categories ;//response.data;//response.data;
+            $rootScope.fact = response.data ;//response.data;//response.data;
             
             $scope.rowCollectionLeave=response.data.document_tone.tone_categories[0].tones;
             /*for (var j = 0; j < response.data.length; j++) {

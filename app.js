@@ -153,15 +153,15 @@ var toneAnalyzer = new ToneAnalyzerV3({
 });
 var dummyJson = require('./test/tone.json');
 app.post('/api/tone', function(req, res, next) {
-	 /* Api call Working no issue uncomment during real impl
-	  * toneAnalyzer.tone(req.body, function(err, data) {
+	 /* Api call Working no issue uncomment during real impl*/
+
+	  toneAnalyzer.tone(req.body, function(err, data) {
 	    if (err) {
 	      return next(err);
 	    }
 	    return res.json(data);
 	  });
-	  */
-	return res.json(dummyJson);
+	  	//return res.json(dummyJson);
 	});
 /*
  * =================================================
