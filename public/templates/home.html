@@ -1,4 +1,4 @@
-<div class="container"> <!--  ng-init="findTone()" -->
+<div class="container" ng-init="findTone()"> <!--  ng-init="findTone()" -->
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -23,6 +23,7 @@
                 	<div class="alert alert-success" role="alert">
 					  <strong>Attention!</strong> Please use virtual agent support center top right corner.
 					</div>
+                	<!--  
                 	<div class="alert alert-warning" role="alert">
   						<strong>Warning!</strong>This section not yet live! stay tuned.
 					</div>
@@ -73,7 +74,7 @@
                         </form>
                     </div>
                 </div>
-                <!--  <div class="panel-footer panel-default clearfix"><div class="row pull-right">
+                  <div class="panel-footer panel-default clearfix"><div class="row pull-right">
                     <img src="images/poweredBy.01.png"/></div>-->
                 </div>
             </div>
@@ -84,35 +85,32 @@
         <div class="col-md-12">
             <div class="panel panel-default" ng-show="!empty">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Analysis on Emotion - Language Style - Social Tendencies</h3>
+                    <h3 class="panel-title">Analysis on Emotion - Social Tendencies</h3>
+                    <p class="text-muted">> .5 = not likely present</p> 
+					<p class="text-muted">>= .5 = likely present </p>
+					<p class="text-muted">> .75 = very likely present</p> 
                 </div>
                 <div class="panel-body">
-                    <h4>Emotion Tone</h4>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Tone Name</th>
-                                <th>Score</th>
-                                <!-- <th>Reservation</th> -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="row in rowCollectionLeave">
-                                <td>{{row.tone_name}}</td>
-                                <td>{{(row.score*100) | number:0}}%</td>
-                                <!-- <td>
-                                    <button class="btn btn-xs btn-primary" ng-click="selectRow(row)" type="button">
-                                        Choose
-                                    </button>
-                                </td>
-                                <td>
-                                    <button type="button" ng-click="removeRow(row)" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove-circle"></i>
-                                    </button>
-                                </td> -->
-                            </tr>
-                        </tbody>
-                    </table>
+                	<div class="container">
+	                	<div class="row">
+		                	<div class="col-xs-6">
+			                    <h4>Emotion Tone</h4>
+			                    <div class="row" ng-repeat="row in rowCollectionLeave">
+			                    	<div class="col-md-6" style="background-color:Linen">
+									  	<div class="col-md-1" style="background-color:rgb(50,169,229);color:white; margin: 2px;width:{{(row.score*100)+140}}px">{{row.tone_name}}</div>
+								  	</div><p class="text-primary">{{scoreEvaluate(row.score)}}</p>
+								</div>
+							</div>	
+		                	<div class="col-xs-6">
+			                    <h4>Social Tone</h4>
+			                    <div class="row" ng-repeat="row in rowCollectionSc">
+			                    	<div class="col-md-6" style="background-color:LightGoldenRodYellow ">
+									  	<div class="col-md-1" style="background-color:rgb(85,229,50);color:white; margin: 2px;width:{{(row.score*100)+140}}px">{{row.tone_name}}</div>
+								  	</div><p class="text-success">{{scoreEvaluate(row.score)}}</p>
+								</div>
+							</div>	
+						</div>
+					</div>
                 </div>
                 <div class="panel-footer">
                 </div>

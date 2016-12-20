@@ -41,7 +41,7 @@ travelApp.config(function($stateProvider, $urlRouterProvider) {
  * loaded
  */
 travelApp.run(function($rootScope, $state, $cookies) {
-    $rootScope.showCode = true; //change to false during prod deployment;
+    $rootScope.showCode = false; //change to false during prod deployment;
     $rootScope.publishMessage = function(message) {
         $rootScope.textAreaShowMe = message + "\n" + ($rootScope.textAreaShowMe ? $rootScope.textAreaShowMe : "");
     };
@@ -155,7 +155,7 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
         });
     };
     
-    $scope.findTone = function(domainName,startdate, enddate) {
+        $scope.findTone = function(domainName,startdate, enddate) {
         $rootScope.fact = "reterive the tone using REST call: /api/tone";
         $scope.rowCollectionLeave = [];
         $scope.rowCollectionRet = [];
@@ -164,7 +164,7 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
         $rootScope.publishMessage("POST REST REQ=/api/tone");
         $http.post("/api/tone",
         		{ 
-        			text: 'system : Sorry for the delay, we are currently experiencing high volumes. Please hold for the next available adviser. system : Sorry for the delay, we are currently experiencing high volumes. Please hold for the next available advisor system : You are now chatting with Dizzy. agent : Hello, you are chatting with Dizzy, how may I help you today? Visitor: i need a pac code agent : To get the pac code you just need to call on 191 and choose the option 2, 1 and 2. agent : The call will be free of cost . Visitor: ok thank you agent : You are welcome . agent : Is there anything else I can do for you today? Visitor: no thanks agent : You are welcome . agent : Have a great day ahead . agent : Take care . agent : Cheers. Visitor: u 2 agent : Bye. agent : Thanks. system : Thanks for chatting with us. A word is dead when it is said, some say. Emily Dickinson' 
+        			text: 'A word is dead when it is said, some say. Emily Dickinson' 
         		}
         )
         .then(function(response) {
@@ -172,9 +172,10 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
                 $scope.empty = false;
             }*/
         	$scope.empty = false;
-            $rootScope.fact = response.data ;//response.data;//response.data;
+            $rootScope.fact = response.data.document_tone.tone_categories ;//response.data;//response.data;
             
             $scope.rowCollectionLeave=response.data.document_tone.tone_categories[0].tones;
+            $scope.rowCollectionSc=response.data.document_tone.tone_categories[2].tones;
             /*for (var j = 0; j < response.data.length; j++) {
                 $scope.rowCollectionLeave.push(response.data[j]);
             }*/
@@ -183,6 +184,17 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
         	$rootScope.fact = JSON.stringify(error);
         });
     };
+    $scope.scoreEvaluate = function(score) {
+    	var htmlText=parseFloat(Math.round(score * 100) / 100).toFixed(2);
+    	if (score >.75){
+    		htmlText =htmlText.concat(' very likely present');
+    	}else if (score>=.5){
+    		htmlText = htmlText.concat(' likely present');
+    	}else{
+    		htmlText = htmlText.concat(' not likely present');
+    	}
+    	return htmlText;
+    }
     
     $scope.findFlights = function(domainName, toName, departDate) {
         $rootScope.fact = "Searching for flights using REST call: /api/flightPath/findAll";
