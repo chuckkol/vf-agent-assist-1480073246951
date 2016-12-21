@@ -89,7 +89,7 @@ travelApp.controller("LoginController", function($scope, $rootScope, $state, $ht
             });
         } else {
         	$rootScope.publishMessage("CHECK AUTHENTICATION");
-        	if ((username == "admin" && password == "admin!123") || (username == "test" && password == "test") ){
+        	if ((username == "admin" && password == "admin") || (username == "test" && password == "test") ){
                 $scope.formData.error=null;
                 $cookies.put('token','admin', {"expires": cookieExpiration});
                 $cookies.put('user','admin', {"expires": cookieExpiration});
