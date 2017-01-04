@@ -4,78 +4,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="container-fluid panel-container">
-                        <div class="col-xs-6 text-left">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <img src="images/CBTravel.LOGO.png">
+                       	<div class="row">
+		                	<div class="col-xs-5 col-sm-5 col-lg-5">
+			                    <div class="col-sm-10">
+                                    <img src="images/ibm_watson.png"style="width:30%;height:20%">
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <small><strong>Cognitive Support Statistic</strong></small>
+                                <div class="col-sm-10">
+                                    <img src="images/vflogo.png"style="width:30%;height:10%">
                                 </div>
-                            </div>
-                        </div>
-                        <ngcart-summary></ngcart-summary>
+							</div>	
+		                	<div class="col-xs-3 col-sm-3 col-lg-3">
+							  	<div><h2>Cognitive Mate</h2><p class = "lead">Dash board</p></div>
+							</div>	
+		                	<div class="col-xs-4 col-sm-4 col-lg-4" >
+							  	<ngcart-summary></ngcart-summary>
+							</div>	
+						</div>
                     </div>
-                </div>
-                <div class="panel-body">
-                	<div class="alert alert-success" role="alert">
-					  <strong>Attention!</strong> Please use virtual agent support center top right corner.
-					</div>
-                	<!--  
-                	<div class="alert alert-warning" role="alert">
-  						<strong>Warning!</strong>This section not yet live! stay tuned.
-					</div>
-                    <div class="col-sm-12">
-                        <form class="form-horizontal" role="form" name="homeForm"  ng-submit="findTone()" novalidate>
-                            <div class="form-group" ng-class="{ 'has-error' : homeForm.from.$invalid && !homeForm.from.$pristine && homeForm.to.$invalid && !homeForm.to.$pristine }">
-                                <label class="col-sm-3 control-label">Support Domain</label>
-                                <div class="col-sm-5">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">Domain</span>
-                                        <input type="text" placeholder="Select Domain"
-                                            typeahead="data.airportname for data in findAirports($viewValue)"
-                                            typeahead-min-length="3"
-                                            typeahead-wait-ms="250"
-                                            ng-model="domainname"
-                                            ng-minlength="3"
-                                            class="input-sm form-control"
-                                            name="domain" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <p ng-show="homeForm.domain.$invalid && !homeForm.domain.$pristine" class="help-block">
-                                Please enter at least 3 letters for the <em>source</em> domain.
-                            </p>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">DATES</label>
-                                <div class="col-sm-5">
-                                    <div class="input-daterange" id="datepicker">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Form</span>
-                                            <input type="text" class="input-sm form-control" name="start" id="formDate"
-                                                ng-model="startdate" placeholder="enter a from date" />
-                                            <span class="input-group-addon" id="retSpan">End</span>
-                                            <input type="text" class="input-sm form-control" id="lastDate" name="end"
-                                                ng-model="enddate" />
-                                        </div>
-                                        <div class="col-sm-8" style="margin: 3px">
-	                                        <button class="btn btn-primary pull-right btn-sm" type="button"
-			                                        ng-click="findTone(domainname,startdate,enddate)">
-			                                        Conversation Analyzer
-			                                </button>
-		                                </div>
-                                        <div class="col-xs-2">
-		                                </div>
-                                    </div>                                    
-                                </div>
-                            </div>                    
-                        </form>
-                    </div>
-                </div>
-                  <div class="panel-footer panel-default clearfix"><div class="row pull-right">
-                    <img src="images/poweredBy.01.png"/></div>-->
                 </div>
             </div>
         </div>
@@ -84,12 +29,23 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default" ng-show="!empty">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Analysis on Emotion - Social Tendencies</h3>
-                    <p class="text-muted">> .5 = not likely present</p> 
-					<p class="text-muted">>= .5 = likely present </p>
-					<p class="text-muted">> .75 = very likely present</p> 
-                </div>
+                <div class="panel-heading"><h3 class="panel-title">Analysis on Emotion - Social Tendencies</h3> </div>
+				
+                	<div class="container" style="padding:2px"">
+	                	<div class="row">
+		                	<div class="col-xs-8">
+			                    <div class="alert alert-info">
+ 										<strong>Info!</strong> The IBM Watson&trade; Tone Analyzer Service uses linguistic analysis to detect three types of tones from conversation text: emotions, social tendencies, and writing style. Emotions identified include things like anger, fear, joy, sadness, and disgust. Identified social tendencies include things from the Big Five personality traits used by some psychologists. These include openness, conscientiousness, extraversion, agreeableness, and emotional range.
+								</div>
+							</div>	
+		                	<div class="col-xs-3" style="background-color:rgb(85,280,50)""><h6>Measure weightage</h6>
+							  	<div><a href="#">not likely <span class="badge">>.5</span></a></div>
+							  	<div><a href="#">likely <span class="badge">.5</span></a><br></div>
+							  	<div><a href="#">very likely <span class="badge">>.75</span></a><br></div>
+							</div>	
+						</div>
+					</div>
+               
                 <div class="panel-body">
                 	<div class="container">
 	                	<div class="row">

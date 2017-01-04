@@ -91,8 +91,8 @@ travelApp.controller("LoginController", function($scope, $rootScope, $state, $ht
         	$rootScope.publishMessage("CHECK AUTHENTICATION");
         	if ((username == "admin" && password == "admin") || (username == "test" && password == "test") ){
                 $scope.formData.error=null;
-                $cookies.put('token','admin', {"expires": cookieExpiration});
-                $cookies.put('user','admin', {"expires": cookieExpiration});
+                $cookies.put('token',username, {"expires": cookieExpiration});
+                $cookies.put('user',username, {"expires": cookieExpiration});
                 var subscription = fayeClient.subscribe("/" + ($cookies.get("user")).replace(".","_"), function(message) {
                     $rootScope.publishMessage(message.text);
                 });
@@ -155,7 +155,7 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
         });
     };
     
-        $scope.findTone = function(domainName,startdate, enddate) {
+    $scope.findTone = function(domainName,startdate, enddate) {
         $rootScope.fact = "reterive the tone using REST call: /api/tone";
         $scope.rowCollectionLeave = [];
         $scope.rowCollectionRet = [];
@@ -195,6 +195,7 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
     	}
     	return htmlText;
     }
+    
     
     $scope.findFlights = function(domainName, toName, departDate) {
         $rootScope.fact = "Searching for flights using REST call: /api/flightPath/findAll";
@@ -345,10 +346,6 @@ travelApp.controller("HomeController", function($scope, $rootScope, $state, $htt
     });
 });
 
-
-
-
-
 travelApp.controller("UserController", function($rootScope, $scope, $http, $cookies) {
 
     $scope.rowCollectionFlight=[];
@@ -379,4 +376,3 @@ travelApp.controller("ChatController", function($rootScope, $scope, $http, $cook
 
 	$rootScope.showCode = false;
 });
-
