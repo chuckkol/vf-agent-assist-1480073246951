@@ -1,74 +1,94 @@
 <div class="container" ng-init="findTone()"> <!--  ng-init="findTone()" -->
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row" style="padding:0px">
+        <div class="col-xs-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="container-fluid panel-container">
-                       	<div class="row">
-		                	<div class="col-xs-5 col-sm-5 col-lg-5">
-			                    <div class="col-sm-10">
-                                    <img src="images/ibm_watson.png"style="width:30%;height:20%">
-                                </div>
-                                <div class="col-sm-10">
-                                    <img src="images/vflogo.png"style="width:30%;height:10%">
-                                </div>
-							</div>	
-		                	<div class="col-xs-3 col-sm-3 col-lg-3">
-							  	<h2 style="color:LightSeaGreen ;">Cognitive Mate</h2>
-							  	<h3 style="color:red;"><span class="css_blink">Dash board</h3>
-							</div>	
-		                	<div class="col-xs-4 col-sm-4 col-lg-4" >
-							  	<ngcart-summary></ngcart-summary>
-							</div>	
-						</div>
-                    </div>
+                <div class="panel-heading" style="padding:1px">
+	                  <div class="row">
+	                	<div class="col-xs-5 col-sm-5 col-lg-5">
+		                    <div class="col-sm-10">
+	                                  <img src="images/ibm_watson.png"style="width:60%;height:60%">
+	                              </div>
+						</div>	
+	                	<div class="col-xs-3 col-sm-3 col-lg-3">
+						  	<h2 style="color:LightSeaGreen ;">Cognitive Mate</h2>
+						  	<h3 style="color:red;"><span class="css_blink">Dash board</h3>
+						</div>	
+	                	<div class="col-xs-4 col-sm-4 col-lg-4" >
+						  	<ngcart-summary></ngcart-summary>
+						</div>	
+					</div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4"></div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default" ng-show="!empty">
-                <div class="panel-heading"><h3 class="panel-title">Analysis on Emotion - Social Tendencies</h3> </div>
-				
-                	<div class="container" style="padding:2px"">
-	                	<div class="row">
-		                	<div class="col-xs-8">
-			                    <div class="alert alert-info">
- 										<strong>Info!</strong> The IBM Watson&trade; Tone Analyzer Service uses linguistic analysis to detect three types of tones from conversation text: emotions, social tendencies, and writing style. Emotions identified include things like anger, fear, joy, sadness, and disgust. Identified social tendencies include things from the Big Five personality traits used by some psychologists. These include openness, conscientiousness, extraversion, agreeableness, and emotional range.
+               	<div class="container">
+                	<div class="row">
+	                	<div class="col-md-6">
+							 	<div class="row" style="background-color:navy;color:white;">
+							 		<div class="col-xs-12"> 
+								  		<h4>Advice - To improve User Experience based Sentiment analysis</h4>
+								  	</div>
+								</div>  
+							  	<div class="row" style="background-color:activeborder;color:black">
+							  		<div class="col-xs-3" style="padding-right:1px">Indicator</div>
+							  		<div class="col-xs-4">Observation</div>
+							  		<div class="col-xs-5">Action</div>
+							  	</div>
+							  	<div class="row" style="background-color:#EFFFE5;color:black;font-size:11px">
+							  		<div class="col-xs-3">Sentiment</div>
+							  		<div class="col-xs-4">Users shows a high emotional range with extraverted user base</div>
+							  		<div class="col-xs-5">No</div>
+							  	</div>
+							  	<div class="row" style="background-color:#EFFFE5;color:black;font-size:11px">
+							  		<div class="col-xs-3">Agreeableness</div>
+							  		<div class="col-xs-4">caring, sympathetic, cooperative, compromising, trustworthy</div>
+							  		<div class="col-xs-5">No,  good for Vodafone organic growth</div>
+							  	</div>
+							  	<div class="row" style="background-color:#FFFDE5;color:black;font-size:11px">
+							  		<div class="col-xs-3">Openness</div>
+							  		<div class="col-xs-4">Perceived as intellectual, curious, emotionally-aware, imaginative, willing to try new things</div>
+							  		<div class="col-xs-5">
+							  		  No, Though suggested to involve user on new things and innovation
+							  		</div>
+							  	</div>
+							  	<div class="row" style="background-color:#FFE5E5;color:black;font-size:11px">
+							  		<div class="col-xs-3">Sadness</div>
+							  		<div class="col-xs-4">Feeling of loss and disadvantage. User can be observed to be quiet, less energetic and withdrawn.</div>
+							  		<div class="col-xs-5">
+							  		  Train and enhance the conversation flow to understand the user problem better<br>
+							  		  Extend and enrich the Knowledge Corpus.advice  better and increase efficiency
+							  		</div>
+							  	</div>
+							  	<div class="row" style="background-color:#FFE5E5;color:black;font-size:11px">
+							  		<div class="col-xs-3">Extraversion</div>
+							  		<div class="col-xs-4">Perceived as engaging, seeking attention</div>
+							  		<div class="col-xs-5">Train user and build awareness to make user confident </div>
+							  	</div>
+							<strong>* Info!</strong> The IBM Watson&trade; Tone Analyzer Service uses linguistic analysis to detect three types of tones from conversation text: emotions, social tendencies. To help business take right decision.
+						</div>	
+	                	<div class="col-xs-5">
+	                	    <div class="panel panel-success">
+	                			<div class="panel panel-success"><div class="panel-heading" style="padding:2px"><h3 class="panel-title" style="background-color:#FFB380;color:black;">User experience -pulse</h3></div></div>
+			                    <h6> Emotion Tone</h6>
+			                    <div class="row" ng-repeat="row in rowCollectionLeave" style="margin: 1px">
+			                    	<div class="col-md-6">
+									  	<div class="col-md-1" style="background-color:#99D0FF;font-size:11px;color:black; margin: 2px;width:{{(row.score*100)+140}}px">{{row.tone_name}}</div>
+								  	</div><p class="text-primary" style="font-size:11px;">{{scoreEvaluate(row.score)}}</p>
 								</div>
-							</div>	
-		                	<div class="col-xs-3" style="background-color:rgb(85,280,50)""><h6>Measure weightage</h6>
-							  	<div><a href="#">not likely <span class="badge">>.5</span></a></div>
-							  	<div><a href="#">likely <span class="badge">.5</span></a><br></div>
-							  	<div><a href="#">very likely <span class="badge">>.75</span></a><br></div>
-							</div>	
-						</div>
+								<h6> Social Tone</h6>
+			                    <div class="row" ng-repeat="row in rowCollectionSc" style="margin: 1px">
+			                    	<div class="col-md-6">
+									  	<div class="col-md-1" style="background-color:#e5adff;font-size:11px;color:black; margin: 2px;width:{{(row.score*100)+140}}px">{{row.tone_name}}</div>
+								  	</div><p class="text-success" style="font-size:11px;">{{scoreEvaluate(row.score)}}</p>
+								</div>
+								<div>*Weightage <a href="#">not likely<span class="badge">>.5</span></a><a href="#"> likely<span class="badge">.5</span></a><a href="#"> very likely<span class="badge">>.75</span></a></div>
+							</div>
+						</div>	
 					</div>
-               
-                <div class="panel-body">
-                	<div class="container">
-	                	<div class="row">
-		                	<div class="col-xs-6">
-			                    <h4>Emotion Tone</h4>
-			                    <div class="row" ng-repeat="row in rowCollectionLeave">
-			                    	<div class="col-md-6" style="background-color:Linen">
-									  	<div class="col-md-1" style="background-color:rgb(50,169,229);color:white; margin: 2px;width:{{(row.score*100)+140}}px">{{row.tone_name}}</div>
-								  	</div><p class="text-primary">{{scoreEvaluate(row.score)}}</p>
-								</div>
-							</div>	
-		                	<div class="col-xs-6">
-			                    <h4>Social Tone</h4>
-			                    <div class="row" ng-repeat="row in rowCollectionSc">
-			                    	<div class="col-md-6" style="background-color:LightGoldenRodYellow ">
-									  	<div class="col-md-1" style="background-color:rgb(85,229,50);color:white; margin: 2px;width:{{(row.score*100)+140}}px">{{row.tone_name}}</div>
-								  	</div><p class="text-success">{{scoreEvaluate(row.score)}}</p>
-								</div>
-							</div>	
-						</div>
-					</div>
-                </div>
+				</div>
                 <div class="panel-footer">
                 </div>
             </div>
